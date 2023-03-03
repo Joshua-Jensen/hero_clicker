@@ -20,13 +20,13 @@ heroes = [
         dps: 1,
         baseDpsIncrease: 1,
         clickDamageAdded: 0,
-        clickDamageIncrease: ,
+        clickDamageIncrease: 0,
         cost: 50,
     },
 ]
 drawGold()
+drawDamage()
 drawHeroes()
-
 function gameLoop() {
     gold += (clickDamage + 1)
     console.log(gold)
@@ -34,7 +34,12 @@ function gameLoop() {
 }
 
 function drawDamage() {
-
+    let dpsElem = document.getElementById('dps')
+    let clickDamageElem = document.getElementById('click-damage')
+    dpsElem.innerText = '0'
+    dpsElem.innerText = dps.toString()
+    clickDamageElem.innerText = clickDamage.toString()
+    console.log('Test')
 }
 
 function drawGold() {
@@ -47,7 +52,7 @@ function levelUp(name) {
         if (h.name == name) {
             if (gold >= h.cost) {
                 h.lvl++
-                h.dps += baseDpsIncrease
+                h.dps += h.baseDpsIncrease
                 h.clickDamageAdded += h.clickDamageIncrease
                 clickDamage += h.clickDamageAdded
                 dps += h.dps
@@ -55,6 +60,7 @@ function levelUp(name) {
                 h.cost = Math.floor(h.cost * (1.07 ** h.lvl))
                 drawLevelUp(h.name)
                 drawGold()
+                drawDamage()
                 console.log(h)
             }
         }

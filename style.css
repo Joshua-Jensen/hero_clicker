@@ -1,0 +1,57 @@
+.bg-img {
+    background-image: image('country field.svg');
+}
+
+/* SECTION header classes */
+
+.outline {
+    border: 3px solid brown;
+    border-radius: 5px;
+}
+
+/* SECTIOn hero store classes */
+.bg-custom {
+    background-color: #cb8419;
+}
+
+.hero-card {
+    background-color: #f8efb5;
+    box-shadow: 2px 2px #f5f0cd;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.lvl-up {
+    border: 5px solid gold;
+    background-color: aqua;
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.cost {
+    color: gold;
+    text-shadow: 0px -1px 1px black;
+}
+
+.bg-dps {
+    background-color: #5d3a06;
+    border-radius: 3px;
+    color: antiquewhite;
+}
+
+.lvl {
+    color: antiquewhite;
+    text-shadow: 0px -1px 1px black;
+}
+
+/* SECTION enemy side classes */
+
+.enemy-img {
+    height: 40vh;
+}
+
+.min-height {
+    min-height: 100vh;
+}

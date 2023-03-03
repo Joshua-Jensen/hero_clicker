@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+    <link rel="stylesheet" href="style.css">
+    <title>clicker hero</title>
+</head>
+
+<body class="bg-img">
+    <header class="container">
+        <section class="row p-2">
+            <!-- NOTE gold display -->
+
+            <div class="col-5 outline">
+                <img src="goldCoin1.png" alt="gold coin">
+                <span id="gold"></span>
+            </div>
+            <div class="col-2"></div>
+            <!-- NOTE level display -->
+
+            <div class="col-5 outline" id="levels">
+
+            </div>
+
+        </section>
+    </header>
+
+    <main class="container-fluid">
+        <section class="row">
+            <!-- SECTION buying section -->
+            <div class="col-6 bg-custom">
+                <section class="row p-3">
+                    <div class="col-4 bg-dps">
+                        <div>
+                            <span>dps</span>
+                            <span id="dps"></span>
+                        </div>
+
+                        <div>
+                            <span>click damage</span>
+                            <span id="click-damage"></span>
+                        </div>
+                    </div>
+                </section>
+                <section class="row justify-content-center mx-3 pb-3 g-3">
+                    <div class="col-12 ">
+                        <div class="d-flex hero-card justify-content-between" id="cid">
+                            <div onclick="levelUp('cid')" class="lvl-up">
+                                <p class="">lvl up</p>
+                                <img src="goldCoin1.png" alt="gold coin">
+                                <span class="cost"></span>
+                            </div>
+                            <!-- <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt=""> -->
+                            <div>
+                                <p>cid</p>
+                                <span>lvl</span>
+                                <span class="lvl"></span>
+
+                            </div>
+                            <img src="Cid-Summer.webp" alt="cid">
+                        </div>
+                    </div>
+
+
+
+                </section>
+            </div>
+            <!-- SECTION game section -->
+            <div class="col-6 d-flex justify-content-center align-items-center min-height">
+                <img class="enemy-img" onclick="gameLoop()" src="Angry_Potato.webp" alt="angry potato">
+
+
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
