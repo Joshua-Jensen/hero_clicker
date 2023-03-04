@@ -9,7 +9,7 @@ heroes = [
         name: 'cid',
         lvl: 0,
         dps: 0,
-        baseDpsIncrease: 0,
+        dpsIncrease: 0,
         clickDamageAdded: 0,
         clickDamageIncrease: 1,
         cost: 5,
@@ -18,7 +18,7 @@ heroes = [
         name: 'treebeast',
         lvl: 0,
         dps: 1,
-        baseDpsIncrease: 1,
+        dpsIncrease: 1,
         clickDamageAdded: 0,
         clickDamageIncrease: 0,
         cost: 50,
@@ -27,7 +27,7 @@ heroes = [
         name: 'ivan',
         lvl: 0,
         dps: 22,
-        baseDpsIncrease: 22,
+        dpsIncrease: 22,
         clickDamageAdded: 0,
         clickDamageIncrease: 0,
         cost: 250,
@@ -36,7 +36,7 @@ heroes = [
         name: 'brittany',
         lvl: 0,
         dps: 74,
-        baseDpsIncrease: 74,
+        dpsIncrease: 74,
         clickDamageAdded: 0,
         clickDamageIncrease: 0,
         cost: 1000,
@@ -110,10 +110,10 @@ function levelUp(name) {
         if (h.name == name) {
             if (gold >= h.cost) {
                 h.lvl++
-                h.dps += h.baseDpsIncrease
+                h.dps += h.dpsIncrease
                 h.clickDamageAdded += h.clickDamageIncrease
                 clickDamage += h.clickDamageIncrease
-                dps += h.baseDpsIncrease
+                dps += h.dpsIncrease
                 gold -= h.cost
                 h.cost = Math.floor(h.cost * (1.07 ** h.lvl))
                 drawLevelUp(h.name)
