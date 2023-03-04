@@ -3,7 +3,7 @@
 // dps interval function
 let gold = 0
 let dps = 0
-let clickDamage = 0
+let clickDamage = 1
 heroes = [
     {
         name: 'cid',
@@ -23,15 +23,29 @@ heroes = [
         clickDamageIncrease: 0,
         cost: 50,
     },
+    {
+        name: 'ivan',
+        lvl: 0,
+        dps: 22,
+        baseDpsIncrease: 22,
+        clickDamageAdded: 0,
+        clickDamageIncrease: 0,
+        cost: 250,
+    },
+    {
+        name: 'brittany',
+        lvl: 0,
+        dps: 74,
+        baseDpsIncrease: 74,
+        clickDamageAdded: 0,
+        clickDamageIncrease: 0,
+        cost: 1000,
+    },
 ]
 drawGold()
 drawDamage()
 drawHeroes()
-function gameLoop() {
-    gold += (clickDamage + 1)
-    console.log(gold)
-    drawGold()
-}
+// SECTION draw functions
 
 function drawDamage() {
     let dpsElem = document.getElementById('dps')
@@ -45,26 +59,6 @@ function drawDamage() {
 function drawGold() {
     let goldElem = document.getElementById('gold')
     goldElem.innerText = gold.toString()
-}
-
-function levelUp(name) {
-    heroes.forEach(h => {
-        if (h.name == name) {
-            if (gold >= h.cost) {
-                h.lvl++
-                h.dps += h.baseDpsIncrease
-                h.clickDamageAdded += h.clickDamageIncrease
-                clickDamage += h.clickDamageAdded
-                dps += h.dps
-                gold -= h.cost
-                h.cost = Math.floor(h.cost * (1.07 ** h.lvl))
-                drawLevelUp(h.name)
-                drawGold()
-                drawDamage()
-                console.log(h)
-            }
-        }
-    });
 }
 
 function drawLevelUp(name) {
@@ -91,3 +85,44 @@ function drawHeroes() {
         textLevel.innerText = h.lvl.toString()
     })
 }
+
+
+
+//SECTION game loops
+
+function gameLoop() {
+    gold += (clickDamage)
+    console.log(gold)
+    drawGold()
+}
+
+setInterval(dpsTick, 1000)
+
+
+function dpsTick() {
+    gold += dps
+    drawGold()
+    console.log(gold, 'a second passes');
+}
+
+function levelUp(name) {
+    heroes.forEach(h => {
+        if (h.name == name) {
+            if (gold >= h.cost) {
+                h.lvl++
+                h.dps += h.baseDpsIncrease
+                h.clickDamageAdded += h.clickDamageIncrease
+                clickDamage += h.clickDamageIncrease
+                dps += h.baseDpsIncrease
+                gold -= h.cost
+                h.cost = Math.floor(h.cost * (1.07 ** h.lvl))
+                drawLevelUp(h.name)
+                drawGold()
+                drawDamage()
+                console.log(h)
+            }
+        }
+    });
+}
+
+
