@@ -93,15 +93,15 @@ function drawHeroes() {
     })
 }
 
-function drawHpBar() {
-    let progressBarElem = document.getElementById('progress-bar')
-    progressBarElem.innerHTML = `<div class="progress" role="progressbar" aria-label="hp remaining" aria-valuenow="${(monster.currentHp / monster.maxHp) * 100}"
-    aria-valuemax="100" aria-valuemin="0"></div>`
-    if (monster.currentHp < 1) {
-        gold += monster.Bounty
-        monster.currentHp = monster.maxHp
+// function drawHpBar() {
+//     let progressBarElem = document.getElementById('progress-bar')
+//     progressBarElem.innerHTML = `<div class="progress" role="progressbar" aria-label="hp remaining" aria-valuenow="${(monster.currentHp / monster.maxHp) * 100}"
+//     aria-valuemax="100" aria-valuemin="0"></div>`
+//     if (monster.currentHp < 1) {
+//         gold += monster.Bounty
+//         monster.currentHp = monster.maxHp
 
-    }
+//     }
     // console.log(monster.currentHp)
 }
 
