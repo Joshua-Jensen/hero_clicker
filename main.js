@@ -102,8 +102,8 @@ function drawHeroes() {
 //         monster.currentHp = monster.maxHp
 
 //     }
-    // console.log(monster.currentHp)
-}
+// console.log(monster.currentHp)
+// }
 
 function shakeOn() {
     document.getElementById('enemy').classList.toggle('shake')
