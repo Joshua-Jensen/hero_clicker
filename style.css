@@ -1,5 +1,8 @@
 .bg-img {
-    background-image: image('country field.svg');
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/302/483/large_2x/vector-background-scene-with-green-field.jpg");
+    background-size: cover;
+    background-position: center;
+
 }
 
 /* SECTION header classes */
@@ -10,6 +13,7 @@
 }
 
 /* SECTIOn hero store classes */
+
 .bg-custom {
     background-color: #cb8419;
 }
@@ -52,6 +56,22 @@
     height: 40vh;
 }
 
+.shake {
+    animation: shake .1s 1;
+}
+
 .min-height {
     min-height: 100vh;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
 }

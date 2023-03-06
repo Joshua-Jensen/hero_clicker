@@ -4,6 +4,12 @@
 let gold = 0
 let dps = 0
 let clickDamage = 1
+let monster = {
+    name: 'potatoMonster',
+    maxHp: 100,
+    currentHp: 100,
+    Bounty: 100,
+}
 heroes = [
     {
         name: 'cid',
@@ -45,6 +51,7 @@ heroes = [
 drawGold()
 drawDamage()
 drawHeroes()
+drawHpBar()
 // SECTION draw functions
 
 function drawDamage() {
@@ -86,6 +93,30 @@ function drawHeroes() {
     })
 }
 
+function drawHpBar() {
+    let progressBarElem = document.getElementById('progress-bar')
+    progressBarElem.innerHTML = `<div class="progress" role="progressbar" aria-label="hp remaining" aria-valuenow="${(monster.currentHp / monster.maxHp) * 100}"
+    aria-valuemax="100" aria-valuemin="0"></div>`
+    if (monster.currentHp < 1) {
+        gold += monster.Bounty
+        monster.currentHp = monster.maxHp
+
+    }
+    // console.log(monster.currentHp)
+}
+
+function shakeOn() {
+    document.getElementById('enemy').classList.toggle('shake')
+    // document.getElementById("enemy").classList.add('shake')
+    // document.getElementById("enemy").classList.remove('shake')
+    // shakeOff()
+    // document.getElementById('enemy').classList.toggle('shake')
+}
+
+
+// function shakeOff() {
+//     document.getElementById('enemy').classList.remove('shake')
+// }
 
 
 //SECTION game loops
@@ -93,7 +124,9 @@ function drawHeroes() {
 function gameLoop() {
     gold += (clickDamage)
     console.log(gold)
+    monster.currentHp -= clickDamage
     drawGold()
+    drawHpBar()
 }
 
 setInterval(dpsTick, 1000)
@@ -101,7 +134,9 @@ setInterval(dpsTick, 1000)
 
 function dpsTick() {
     gold += dps
+    monster.currentHp -= dps
     drawGold()
+    drawHpBar()
     console.log(gold, 'a second passes');
 }
 
